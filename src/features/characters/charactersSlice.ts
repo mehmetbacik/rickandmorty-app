@@ -3,8 +3,16 @@ import { fetchCharacters, fetchCharacterDetail } from "../../api/api";
 
 export const getCharacters = createAsyncThunk(
   "characters/getCharacters",
-  async () => {
-    const data = await fetchCharacters();
+  async (
+    filters: {
+      name?: string;
+      status?: string;
+      species?: string;
+      type?: string;
+      gender?: string;
+    } = {}
+  ) => {
+    const data = await fetchCharacters(filters);
     return data;
   }
 );
