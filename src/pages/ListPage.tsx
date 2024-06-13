@@ -44,10 +44,9 @@ const ListPage: React.FC = () => {
     <div className="container mx-auto p-4">
       <Filter onFilterChange={handleFilterChange} />
       {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      {!loading && characters.length === 0 && <p>No characters found</p>}
-      {!isFiltered && <CharactersList characters={characters} />}
-      {isFiltered && characters.length > 0 && (
+      {error && <p>Sorry, no results found.</p>}
+      {!error && !isFiltered && <CharactersList characters={characters} />}
+      {!error && isFiltered && characters.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {characters.map((character) => (
             <div
