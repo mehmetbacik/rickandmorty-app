@@ -19,7 +19,6 @@ const ListPage: React.FC = () => {
     type?: string;
     gender?: string;
   }>({});
-  const [isFiltered, setIsFiltered] = useState(false);
 
   useEffect(() => {
     dispatch(getCharacters(filters));
@@ -33,10 +32,9 @@ const ListPage: React.FC = () => {
     gender?: string;
   }) => {
     setFilters(newFilters);
-    setIsFiltered(true);
   };
 
-  const handleCardClick = (id: string) => {
+  const handleCardClick = (id: number) => {
     navigate(`/detail/${id}`);
   };
 
@@ -45,27 +43,11 @@ const ListPage: React.FC = () => {
       <Filter onFilterChange={handleFilterChange} />
       {loading && <p>Loading...</p>}
       {error && <p>Sorry, no results found.</p>}
-      {!error && !isFiltered && <CharactersList characters={characters} />}
-      {!error && isFiltered && characters.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {characters.map((character) => (
-            <div
-              key={character.id}
-              className="border p-4 cursor-pointer"
-              onClick={() => handleCardClick(character.id)}
-            >
-              <h2 className="text-xl font-bold">{character.name}</h2>
-              <img
-                src={character.image}
-                alt={character.name}
-                className="w-full h-64 object-cover mb-4"
-              />
-              <p>Status: {character.status}</p>
-              <p>Species: {character.species}</p>
-              <p>Gender: {character.gender}</p>
-            </div>
-          ))}
-        </div>
+      {!error && (
+        <CharactersList
+          characters={characters}
+          onCharacterClick={handleCardClick}
+        />
       )}
     </div>
   );

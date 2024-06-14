@@ -1,32 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 interface Character {
   id: number;
   name: string;
+  status: string;
+  species: string;
+  gender: string;
   image: string;
 }
 
 interface CharactersListProps {
   characters: Character[];
+  onCharacterClick?: (id: number) => void;
 }
 
-const CharactersList: React.FC<CharactersListProps> = ({ characters }) => {
+const CharactersList: React.FC<CharactersListProps> = ({
+  characters,
+  onCharacterClick,
+}) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {characters.map((character) => (
-        <Link
+        <div
           key={character.id}
-          to={`/detail/${character.id}`}
-          className="border p-4 rounded"
+          className="border p-4 cursor-pointer"
+          onClick={() => onCharacterClick && onCharacterClick(character.id)}
         >
+          <h2 className="text-xl font-bold">{character.name}</h2>
           <img
             src={character.image}
             alt={character.name}
-            className="w-full h-64 object-cover"
+            className="w-full h-64 object-cover mb-4"
           />
-          <h2 className="text-xl mt-2">{character.name}</h2>
-        </Link>
+          <p>Status: {character.status}</p>
+          <p>Species: {character.species}</p>
+          <p>Gender: {character.gender}</p>
+        </div>
       ))}
     </div>
   );
