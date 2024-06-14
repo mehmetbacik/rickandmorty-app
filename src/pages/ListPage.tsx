@@ -9,7 +9,7 @@ import Filter from "../components/Filter";
 const ListPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  const { characters, loading, error } = useSelector(
+  const { characters, loading, error, noResults } = useSelector(
     (state: RootState) => state.characters
   );
   const [filters, setFilters] = useState<{
@@ -42,8 +42,9 @@ const ListPage: React.FC = () => {
     <div className="container mx-auto p-4">
       <Filter onFilterChange={handleFilterChange} />
       {loading && <p>Loading...</p>}
-      {error && <p>Sorry, no results found.</p>}
-      {!error && (
+      {error && <p>{error}</p>}
+      {noResults && <p>Sorry, no results found.</p>}
+      {!loading && !error && !noResults && (
         <CharactersList
           characters={characters}
           onCharacterClick={handleCardClick}

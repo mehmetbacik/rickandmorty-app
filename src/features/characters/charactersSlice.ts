@@ -32,23 +32,34 @@ const charactersSlice = createSlice({
     characterDetail: null as any | null,
     loading: false,
     error: null as string | null,
+    noResults: false,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getCharacters.pending, (state) => {
         state.loading = true;
+        state.error = null;
+        state.noResults = false;
       })
       .addCase(getCharacters.fulfilled, (state, action) => {
         state.loading = false;
         state.characters = action.payload;
+        state.noResults = action.payload.length === 0;
       })
       .addCase(getCharacters.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message ?? null;
+        state.characters = [];
+        if (action.error.message === "Request failed with status code 404") {
+          state.noResults = true;
+          state.error = null;
+        } else {
+          state.error = action.error.message ?? null;
+        }
       })
       .addCase(getCharacterDetail.pending, (state) => {
         state.loading = true;
+        state.error = null;
       })
       .addCase(getCharacterDetail.fulfilled, (state, action) => {
         state.loading = false;
