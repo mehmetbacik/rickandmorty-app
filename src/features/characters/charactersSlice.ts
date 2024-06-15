@@ -4,15 +4,18 @@ import { fetchCharacters, fetchCharacterDetail } from "../../api/api";
 export const getCharacters = createAsyncThunk(
   "characters/getCharacters",
   async (
-    filters: {
-      name?: string;
-      status?: string;
-      species?: string;
-      type?: string;
-      gender?: string;
+    params: {
+      filters?: {
+        name?: string;
+        status?: string;
+        species?: string;
+        type?: string;
+        gender?: string;
+      };
+      page?: number;
     } = {}
   ) => {
-    const data = await fetchCharacters(filters);
+    const data = await fetchCharacters(params.filters, params.page);
     return data;
   }
 );
@@ -33,8 +36,14 @@ const charactersSlice = createSlice({
     loading: false,
     error: null as string | null,
     noResults: false,
+    totalPages: 0,
+    currentPage: 1,
   },
-  reducers: {},
+  reducers: {
+    setPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCharacters.pending, (state) => {
@@ -44,8 +53,10 @@ const charactersSlice = createSlice({
       })
       .addCase(getCharacters.fulfilled, (state, action) => {
         state.loading = false;
-        state.characters = action.payload;
-        state.noResults = action.payload.length === 0;
+        state.characters = action.payload.results;
+        state.totalPages = action.payload.info.pages;
+        state.noResults = action.payload.results.length === 0;
+        state.error = null;
       })
       .addCase(getCharacters.rejected, (state, action) => {
         state.loading = false;
@@ -55,6 +66,7 @@ const charactersSlice = createSlice({
           state.error = null;
         } else {
           state.error = action.error.message ?? null;
+          state.noResults = false;
         }
       })
       .addCase(getCharacterDetail.pending, (state) => {
@@ -72,4 +84,5 @@ const charactersSlice = createSlice({
   },
 });
 
+export const { setPage } = charactersSlice.actions;
 export default charactersSlice.reducer;
