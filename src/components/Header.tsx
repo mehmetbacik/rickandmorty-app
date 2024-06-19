@@ -8,6 +8,9 @@ const Header: React.FC = () => {
         <Link to="/" className="text-xl font-bold">
           Rick and Morty
         </Link>
+        <Link to="/episodes" className="text-lg">
+          Episodes
+        </Link>
         <Link to="/list" className="text-lg">
           Characters
         </Link>

@@ -21,3 +21,13 @@ export const fetchCharacterDetail = async (id: string) => {
   const response = await axios.get(`${API_URL}/character/${id}`);
   return response.data;
 };
+
+export const fetchEpisodes = async (filters = {}) => {
+  const response = await axios.get(`${API_URL}/episode`, { params: filters });
+  return response.data.results;
+};
+
+export const fetchEpisodeDetail = async (id: string) => {
+  const response = await axios.get(`${API_URL}/episode/${id}`);
+  return response.data;
+};

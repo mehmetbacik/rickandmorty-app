@@ -9,6 +9,8 @@ import { store } from "./app/store";
 import Home from "./pages/Home";
 import ListPage from "./pages/ListPage";
 import DetailPage from "./pages/DetailPage";
+import EpisodeList from "./pages/EpisodeList";
+import EpisodeDetail from "./pages/EpisodeDetail";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,6 +23,8 @@ root.render(
           <Route path="/" element={<Home />} />
           <Route path="/list" element={<ListPage />} />
           <Route path="/detail/:id" element={<DetailPage />} />
+          <Route path="/episodes" element={<EpisodeList />} />
+          <Route path="/episode/:id" element={<EpisodeDetail />} />
         </Routes>
       </App>
     </Router>
