@@ -22,9 +22,10 @@ export const fetchCharacterDetail = async (id: string) => {
   return response.data;
 };
 
-export const fetchEpisodes = async (filters = {}) => {
-  const response = await axios.get(`${API_URL}/episode`, { params: filters });
-  return response.data.results;
+export const fetchEpisodes = async (page: number, filters: any) => {
+  const params = new URLSearchParams({ page: page.toString(), ...filters });
+  const response = await axios.get(`${API_URL}/episode/?${params.toString()}`);
+  return response.data;
 };
 
 export const fetchEpisodeDetail = async (id: string) => {

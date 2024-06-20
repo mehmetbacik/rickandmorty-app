@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { AppDispatch, RootState } from "../app/store";
-import { getEpisodeDetail } from "../features/episodes/episodesSlice";
+import { AppDispatch, RootState } from "../../app/store";
+import { getEpisodeDetail } from "./episodesSlice";
 
 const EpisodeDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();

@@ -12,12 +12,19 @@ const Episode: React.FC = () => {
 
   useEffect(() => {
     if (episodes.length === 0) {
-      dispatch(getEpisodes());
+      dispatch(getEpisodes({ page: 1, filters: {} }));
     } else {
       const randomIndex = Math.floor(Math.random() * episodes.length);
       setRandomEpisode(episodes[randomIndex]);
     }
   }, [dispatch, episodes]);
+
+  useEffect(() => {
+    if (episodes.length > 0) {
+      const randomIndex = Math.floor(Math.random() * episodes.length);
+      setRandomEpisode(episodes[randomIndex]);
+    }
+  }, [episodes]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;

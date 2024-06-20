@@ -3,8 +3,17 @@ import { fetchEpisodes, fetchEpisodeDetail } from "../../api/api";
 
 export const getEpisodes = createAsyncThunk(
   "episodes/getEpisodes",
-  async () => {
-    const data = await fetchEpisodes();
+  async ({
+    page,
+    filters,
+  }: {
+    page: number;
+    filters: {
+      name?: string;
+      episode?: string;
+    };
+  }) => {
+    const data = await fetchEpisodes(page, filters);
     return data;
   }
 );
@@ -24,8 +33,18 @@ const episodesSlice = createSlice({
     episodeDetail: null as any | null,
     loading: false,
     error: null as string | null,
+    totalPages: 0,
+    currentPage: 1,
+    filters: {},
   },
-  reducers: {},
+  reducers: {
+    setPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+    setFilters: (state, action) => {
+      state.filters = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getEpisodes.pending, (state) => {
@@ -34,7 +53,8 @@ const episodesSlice = createSlice({
       })
       .addCase(getEpisodes.fulfilled, (state, action) => {
         state.loading = false;
-        state.episodes = action.payload;
+        state.episodes = action.payload.results;
+        state.totalPages = action.payload.info.pages;
       })
       .addCase(getEpisodes.rejected, (state, action) => {
         state.loading = false;
@@ -55,4 +75,5 @@ const episodesSlice = createSlice({
   },
 });
 
+export const { setPage, setFilters } = episodesSlice.actions;
 export default episodesSlice.reducer;
