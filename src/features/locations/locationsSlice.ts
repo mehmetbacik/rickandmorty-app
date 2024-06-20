@@ -28,8 +28,16 @@ const locationsSlice = createSlice({
     error: null as string | null,
     totalPages: 0,
     currentPage: 1,
+    filters: {} as any, // Default filter value
   },
-  reducers: {},
+  reducers: {
+    setPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+    setFilters: (state, action) => {
+      state.filters = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getLocations.pending, (state) => {
@@ -40,7 +48,6 @@ const locationsSlice = createSlice({
         state.loading = false;
         state.locations = action.payload.results;
         state.totalPages = action.payload.info.pages;
-        state.currentPage = action.meta.arg?.page ?? 1;
       })
       .addCase(getLocations.rejected, (state, action) => {
         state.loading = false;
@@ -61,4 +68,5 @@ const locationsSlice = createSlice({
   },
 });
 
+export const { setPage, setFilters } = locationsSlice.actions;
 export default locationsSlice.reducer;

@@ -38,10 +38,20 @@ const charactersSlice = createSlice({
     noResults: false,
     totalPages: 0,
     currentPage: 1,
+    filters: {} as {
+      name?: string;
+      status?: string;
+      species?: string;
+      type?: string;
+      gender?: string;
+    },
   },
   reducers: {
     setPage: (state, action) => {
       state.currentPage = action.payload;
+    },
+    setFilters: (state, action) => {
+      state.filters = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -84,5 +94,5 @@ const charactersSlice = createSlice({
   },
 });
 
-export const { setPage } = charactersSlice.actions;
+export const { setPage, setFilters } = charactersSlice.actions;
 export default charactersSlice.reducer;

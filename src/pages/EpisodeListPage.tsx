@@ -1,7 +1,7 @@
 import React from "react";
 import EpisodesList from "../features/episodes/EpisodesList";
 
-const EpisodeList: React.FC = () => {
+const EpisodeListPage: React.FC = () => {
   return (
     <div>
       <EpisodesList />
@@ -9,4 +9,4 @@ const EpisodeList: React.FC = () => {
   );
 };
 
-export default EpisodeList;
+export default EpisodeListPage;

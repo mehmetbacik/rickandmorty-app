@@ -1,34 +1,65 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../app/store";
+import { getLocations, setPage, setFilters } from "./locationsSlice";
+import { useNavigate } from "react-router-dom";
+import Pagination from "../../components/Pagination";
+import Filter from "../../components/Filter";
 
-interface Location {
-  id: number;
-  name: string;
-  type: string;
-  dimension: string;
-}
+const LocationsList: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+  const { locations, loading, error, totalPages, currentPage, filters } =
+    useSelector((state: RootState) => state.locations);
 
-interface LocationsListProps {
-  locations: Location[];
-  onLocationClick?: (id: number) => void;
-}
+  useEffect(() => {
+    dispatch(getLocations({ page: currentPage, filters }));
+  }, [dispatch, currentPage, filters]);
 
-const LocationsList: React.FC<LocationsListProps> = ({
-  locations,
-  onLocationClick,
-}) => {
+  const handleLocationClick = (id: number) => {
+    navigate(`/location/${id}`);
+  };
+
+  const handlePageChange = (page: number) => {
+    dispatch(setPage(page));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleFilterChange = (newFilters: {
+    name?: string;
+    type?: string;
+    dimension?: string;
+  }) => {
+    dispatch(setFilters(newFilters));
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {locations.map((location) => (
-        <div
-          key={location.id}
-          className="border p-4 cursor-pointer"
-          onClick={() => onLocationClick && onLocationClick(location.id)}
-        >
-          <h2 className="text-xl font-bold">{location.name}</h2>
-          <p>Type: {location.type}</p>
-          <p>Dimension: {location.dimension}</p>
-        </div>
-      ))}
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Locations</h1>
+      <Filter onFilterChange={handleFilterChange} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {locations.map((location) => (
+          <div
+            key={location.id}
+            className="border p-4 cursor-pointer"
+            onClick={() => handleLocationClick(location.id)}
+          >
+            <h2 className="text-xl font-bold">{location.name}</h2>
+            <p>Type: {location.type}</p>
+            <p>Dimension: {location.dimension}</p>
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-center mt-4">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </div>
     </div>
   );
 };
