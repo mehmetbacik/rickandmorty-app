@@ -7,7 +7,7 @@ import CharactersList from "../features/characters/CharactersList";
 import Filter from "../components/Filter";
 import Pagination from "../components/Pagination";
 
-const ListPage: React.FC = () => {
+const CharacterListPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { characters, loading, error, totalPages, currentPage, noResults } =
@@ -66,4 +66,4 @@ const ListPage: React.FC = () => {
   );
 };
 
-export default ListPage;
+export default CharacterListPage;

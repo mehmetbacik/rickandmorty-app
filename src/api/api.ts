@@ -32,3 +32,23 @@ export const fetchEpisodeDetail = async (id: string) => {
   const response = await axios.get(`${API_URL}/episode/${id}`);
   return response.data;
 };
+
+export const fetchLocations = async (page: number, filters: any) => {
+  try {
+    const response = await axios.get(`${API_URL}/location`, {
+      params: { page, ...filters },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const fetchLocationDetail = async (id: string) => {
+  try {
+    const response = await axios.get(`${API_URL}/location/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

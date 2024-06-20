@@ -11,6 +11,8 @@ import CharacterListPage from "./pages/CharacterListPage";
 import CharacterDetailPage from "./pages/CharacterDetailPage";
 import EpisodeListPage from "./pages/EpisodeListPage";
 import EpisodeDetailPage from "./pages/EpisodeDetailPage";
+import LocationsListPage from "./pages/LocationListPage";
+import LocationDetailPage from "./pages/LocationDetailPage";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -25,6 +27,8 @@ root.render(
           <Route path="/detail/:id" element={<CharacterDetailPage />} />
           <Route path="/episodes" element={<EpisodeListPage />} />
           <Route path="/episode/:id" element={<EpisodeDetailPage />} />
+          <Route path="/locations" element={<LocationsListPage />} />
+          <Route path="/location/:id" element={<LocationDetailPage />} />
         </Routes>
       </App>
     </Router>
