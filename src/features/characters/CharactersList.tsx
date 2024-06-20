@@ -17,7 +17,7 @@ const CharactersList: React.FC = () => {
   }, [dispatch, currentPage, filters]);
 
   const handleCharacterClick = (id: number) => {
-    navigate(`/character/${id}`);
+    navigate(`/detail/${id}`);
   };
 
   const handlePageChange = (page: number) => {
