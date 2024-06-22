@@ -16,9 +16,19 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   const [species, setSpecies] = useState("");
   const [type, setType] = useState("");
   const [gender, setGender] = useState("");
+  const [appliedFilters, setAppliedFilters] = useState<string[]>([]);
 
   const handleFilterChange = () => {
     onFilterChange({ name, status, species, type, gender });
+    setAppliedFilters(
+      [
+        name ? `Name: ${name}` : "",
+        status ? `Status: ${status}` : "",
+        species ? `Species: ${species}` : "",
+        type ? `Type: ${type}` : "",
+        gender ? `Gender: ${gender}` : "",
+      ].filter(Boolean)
+    );
   };
 
   const handleResetFilters = () => {
@@ -28,6 +38,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
     setType("");
     setGender("");
     onFilterChange({});
+    setAppliedFilters([]);
   };
 
   return (
@@ -86,6 +97,18 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
       >
         Reset
       </button>
+      {appliedFilters.length > 0 && (
+        <div className="flex flex-wrap mt-2">
+          {appliedFilters.map((filter, index) => (
+            <div
+              key={index}
+              className="bg-gray-200 px-2 py-1 rounded text-sm mr-2"
+            >
+              {filter}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
