@@ -4,6 +4,6 @@ body {
     @include font;
     background-image: url(../library/images/bg.png);
     background-repeat: repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
 }
