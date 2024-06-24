@@ -6,4 +6,15 @@ body {
     background-repeat: repeat;
     background-size: cover;
     background-position: center;
+    header {
+        nav {
+            .menu {
+                a {
+                    &:hover {
+                        color: $rm-color;
+                    }
+                }
+            }
+        }
+    }
 }

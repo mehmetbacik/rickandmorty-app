@@ -16,7 +16,7 @@ const Header: React.FC = () => {
         <Link to="/" className="text-xl font-bold">
           <img src={Logo} alt="Logo" className="w-1/3 h-auto" />
         </Link>
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4 menu">
           <Link
             to="/"
             className="flex items-center justify-center text-lg text-white"
@@ -57,7 +57,7 @@ const Header: React.FC = () => {
       </nav>
       {isMenuOpen && (
         <div className="md:hidden bg-gray-600 bg-opacity-75">
-          <div className="container mx-auto flex flex-col items-center space-y-4 py-4">
+          <div className="container mx-auto flex flex-col items-center space-y-4 py-4 menu">
             <Link
               to="/"
               className="flex items-center justify-center text-lg text-white"
