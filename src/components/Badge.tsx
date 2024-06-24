@@ -3,8 +3,8 @@ import BadgeImage from "../library/images/badge.png";
 
 const Badge: React.FC = () => {
   return (
-    <div>
-      <img src={BadgeImage} alt="Badge" />
+    <div className="bg-white">
+      <img src={BadgeImage} alt="Badge"/>
     </div>
   );
 };

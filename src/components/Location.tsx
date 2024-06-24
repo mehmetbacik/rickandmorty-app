@@ -23,7 +23,7 @@ const Location: React.FC = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="random-locations">
+    <div className="random-locations bg-white w-full">
       <h2>Locations</h2>
       {randomLocations.map((location) => (
         <div key={location.id}>

@@ -14,17 +14,24 @@ const SwiperSlider: React.FC = () => {
     {
       id: 1,
       image: Banner1,
-      title: "Rick Sanchez",
+      title: "Lorem ipsum dolor",
+      description:
+        "Sit amet consectetur adipisicing elit. Aliquam facilis debitis illum.",
+      url: "/list",
     },
     {
       id: 2,
       image: Banner2,
-      title: "Morty Smith",
+      title: "Quidem a perferendis",
+      description: "Laudantium sed, obcaecati amet animi blanditiis beatae.",
+      url: "/locations",
     },
     {
       id: 3,
       image: Banner3,
-      title: "Summer Smith",
+      title: "Sapiente doloribus",
+      description: "Nam praesentium iure, dolores aut magnam.",
+      url: "/episodes",
     },
   ];
 
@@ -37,22 +44,26 @@ const SwiperSlider: React.FC = () => {
           delay: 3500,
           disableOnInteraction: false,
         }}
-        pagination={{
+        /*pagination={{
           clickable: true,
-        }}
+        }}*/
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="slide">
+            <div className="slide relative">
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="w-full max-h-96 object-cover"
               />
-              <h3 className="text-center mt-4">{slide.title}</h3>
+              <div className="slide-content absolute top-0 right-0 bg-white p-2">
+                <span>{slide.title}</span>
+                <p>{slide.description}</p>
+                <a href={slide.url}>Link</a>
+              </div>
             </div>
           </SwiperSlide>
         ))}

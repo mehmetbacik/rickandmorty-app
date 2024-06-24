@@ -31,7 +31,7 @@ const Episode: React.FC = () => {
   if (!randomEpisode) return null;
 
   return (
-    <div className="random-episode">
+    <div className="random-episode bg-white w-full">
       <h2>Episode</h2>
       <p>
         <strong>Name:</strong> {randomEpisode.name}
