@@ -16,7 +16,6 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   const [species, setSpecies] = useState("");
   const [type, setType] = useState("");
   const [gender, setGender] = useState("");
-  const [appliedFilters, setAppliedFilters] = useState<string[]>([]);
 
   useEffect(() => {
     const filters = [];
@@ -25,7 +24,6 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
     if (species) filters.push(`Species: ${species}`);
     if (type) filters.push(`Type: ${type}`);
     if (gender) filters.push(`Gender: ${gender}`);
-    setAppliedFilters(filters);
   }, [name, status, species, type, gender]);
 
   const handleFilterChange = () => {
@@ -39,7 +37,6 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
     setType("");
     setGender("");
     onFilterChange({});
-    setAppliedFilters([]);
   };
 
   return (
@@ -88,30 +85,20 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
           <option value="unknown">Unknown</option>
         </select>
         <button
+          type="button"
           onClick={handleFilterChange}
           className="bg-blue-500 text-white p-2 mr-2"
         >
           Filter
         </button>
         <button
+          type="button"
           onClick={handleResetFilters}
           className="bg-gray-500 text-white p-2"
         >
           Reset
         </button>
       </div>
-      {appliedFilters.length > 0 && (
-        <div className="flex flex-wrap">
-          {appliedFilters.map((filter, index) => (
-            <div
-              key={index}
-              className="bg-gray-200 px-2 py-1 rounded text-sm mr-2"
-            >
-              {filter}
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 };
