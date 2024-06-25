@@ -8,40 +8,34 @@ const Episode: React.FC = () => {
   const { episodes, loading, error } = useSelector(
     (state: RootState) => state.episodes
   );
-  const [randomEpisode, setRandomEpisode] = useState<any>(null);
+  const [randomEpisodes, setRandomEpisodes] = useState<any[]>([]);
 
   useEffect(() => {
     if (episodes.length === 0) {
       dispatch(getEpisodes({ page: 1, filters: {} }));
     } else {
-      const randomIndex = Math.floor(Math.random() * episodes.length);
-      setRandomEpisode(episodes[randomIndex]);
+      const shuffledEpisodes = [...episodes].sort(() => Math.random() - 0.5);
+      setRandomEpisodes(shuffledEpisodes.slice(0, 4));
     }
   }, [dispatch, episodes]);
 
-  useEffect(() => {
-    if (episodes.length > 0) {
-      const randomIndex = Math.floor(Math.random() * episodes.length);
-      setRandomEpisode(episodes[randomIndex]);
-    }
-  }, [episodes]);
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-  if (!randomEpisode) return null;
 
   return (
-    <div className="random-episode bg-white w-full">
-      <h2>Episode</h2>
-      <p>
-        <strong>Name:</strong> {randomEpisode.name}
-      </p>
-      <p>
-        <strong>Air Date:</strong> {randomEpisode.air_date}
-      </p>
-      <p>
-        <strong>Episode:</strong> {randomEpisode.episode}
-      </p>
+    <div className="random-episodes bg-white w-full">
+      <h2>Episodes</h2>
+      {randomEpisodes.map((episode) => (
+        <div key={episode.id}>
+          <h3>{episode.name}</h3>
+          <p>
+            <strong>Air Date:</strong> {episode.air_date}
+          </p>
+          <p>
+            <strong>Episode:</strong> {episode.episode}
+          </p>
+        </div>
+      ))}
     </div>
   );
 };
