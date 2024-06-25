@@ -17,4 +17,18 @@ body {
             }
         }
     }
+    main {
+        .swiper {
+            .swiper-slide {
+                .slide {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    .slide-content {
+                        width: 250px;
+                    }
+                }
+            }
+        }
+    }
 }
