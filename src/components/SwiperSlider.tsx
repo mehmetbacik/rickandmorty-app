@@ -59,10 +59,14 @@ const SwiperSlider: React.FC = () => {
                 alt={slide.title}
                 className="w-full max-h-96 object-cover"
               />
-              <div className="slide-content absolute bg-gray-200 bg-opacity-75 p-4 m-10 rounded-lg">
-                <span>{slide.title}</span>
-                <p>{slide.description}</p>
-                <a href={slide.url}>Link</a>
+              <div className="slide-content p-4">
+                <div className="headline">
+                  <span>{slide.title}</span>
+                  <p>{slide.description}</p>
+                </div>
+                <div className="url">
+                  <a href={slide.url}>Link</a>
+                </div>
               </div>
             </div>
           </SwiperSlide>
