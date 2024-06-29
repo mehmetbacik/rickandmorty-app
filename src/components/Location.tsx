@@ -23,15 +23,19 @@ const Location: React.FC = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="random-locations bg-white w-full">
-      <h2>Locations</h2>
-      {randomLocations.map((location) => (
-        <div key={location.id}>
-          <h3>{location.name}</h3>
-          <p>Type: {location.type}</p>
-          <p>Dimension: {location.dimension}</p>
-        </div>
-      ))}
+    <div className="random-locations w-full">
+      <div className="headline bg-white bg-opacity-75">
+        <h2>Locations</h2>
+      </div>
+      <div className="content">
+        {randomLocations.map((location) => (
+          <div className="item bg-white bg-opacity-75" key={location.id}>
+            <h3>{location.name}</h3>
+            <p>Type: {location.type}</p>
+            <p>Dimension: {location.dimension}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

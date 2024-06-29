@@ -63,5 +63,45 @@ body {
                 }
             }
         }
+        .random-episodes {
+            .headline {
+                padding: 15px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                h2 {
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+            }
+            .content {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                .item {
+                    padding: 15px;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .random-locations {
+            .headline {
+                padding: 15px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                h2 {
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+            }
+            .content {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                .item {
+                    padding: 15px;
+                    border-radius: 5px;
+                }
+            }
+        }
     }
 }

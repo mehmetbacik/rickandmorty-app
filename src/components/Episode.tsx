@@ -23,19 +23,23 @@ const Episode: React.FC = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="random-episodes bg-white w-full">
-      <h2>Episodes</h2>
-      {randomEpisodes.map((episode) => (
-        <div key={episode.id}>
-          <h3>{episode.name}</h3>
-          <p>
-            <strong>Air Date:</strong> {episode.air_date}
-          </p>
-          <p>
-            <strong>Episode:</strong> {episode.episode}
-          </p>
-        </div>
-      ))}
+    <div className="random-episodes w-full">
+      <div className="headline bg-white bg-opacity-75">
+        <h2>Episodes</h2>
+      </div>
+      <div className="content">
+        {randomEpisodes.map((episode) => (
+          <div className="item bg-white bg-opacity-75" key={episode.id}>
+            <h3>{episode.name}</h3>
+            <p>
+              <strong>Air Date:</strong> {episode.air_date}
+            </p>
+            <p>
+              <strong>Episode:</strong> {episode.episode}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
