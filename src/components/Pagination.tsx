@@ -24,7 +24,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="flex justify-center items-center my-4">
+    <div className="flex justify-center items-center my-4 bg-white bg-opacity-75 pagination">
       <button
         onClick={handlePrevious}
         disabled={currentPage === 1}

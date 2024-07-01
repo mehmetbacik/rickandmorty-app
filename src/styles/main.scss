@@ -1,107 +1,151 @@
 @import "variables";
 
 body {
-    @include font;
-    background-image: url(../library/images/bg.png);
-    background-repeat: repeat;
-    background-size: cover;
-    background-position: center;
-    header {
-        nav {
-            .menu {
-                a {
-                    &:hover {
-                        color: $rm-first-color;
-                    }
-                }
-            }
+  @include font;
+  background-image: url(../library/images/bg.png);
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  header {
+    nav {
+      .menu {
+        a {
+          &:hover {
+            color: $rm-first-color;
+          }
         }
+      }
     }
-    main {
-        .swiper {
-            .swiper-slide {
-                .slide {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                    flex-direction: column;
-                    .slide-content {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        width: 100%;
-                        background-color: $rm-second-color;
-                        .headline {
-                            span {
-                                font-weight: bold;
-                                font-size: 25px;
-                                color: $rm-first-color;
-                            }
-                            p {
-                                color: $rm-first-color;
-                                font-size: 16px;
-                                font-weight: 500;
-                            }
-                        }
-                        .url {
-                            a {
-                                background-color: $rm-first-color;
-                                border: solid 3px $rm-third-color;
-                                border-radius: 5px;
-                                padding: 10px 20px;
-                                color: $white;
-                                font-size: 18px;
-                                font-weight: bold;
-                                &:hover {
-                                    background-color: $rm-second-color;
-                                    color: $rm-first-color;
-                                    border-color: $rm-first-color;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .random-episodes {
+  }
+  main {
+    .swiper {
+      .swiper-slide {
+        .slide {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          flex-direction: column;
+          .slide-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background-color: $rm-second-color;
             .headline {
-                padding: 15px;
-                margin-bottom: 20px;
+              span {
+                font-weight: bold;
+                font-size: 25px;
+                color: $rm-first-color;
+              }
+              p {
+                color: $rm-first-color;
+                font-size: 16px;
+                font-weight: 500;
+              }
+            }
+            .url {
+              a {
+                background-color: $rm-first-color;
+                border: solid 3px $rm-third-color;
                 border-radius: 5px;
-                h2 {
-                    font-weight: bold;
-                    font-size: 20px;
+                padding: 10px 20px;
+                color: $white;
+                font-size: 18px;
+                font-weight: bold;
+                &:hover {
+                  background-color: $rm-second-color;
+                  color: $rm-first-color;
+                  border-color: $rm-first-color;
                 }
+              }
             }
-            .content {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 20px;
-                .item {
-                    padding: 15px;
-                    border-radius: 5px;
-                }
-            }
+          }
         }
-        .random-locations {
-            .headline {
-                padding: 15px;
-                margin-bottom: 20px;
-                border-radius: 5px;
-                h2 {
-                    font-weight: bold;
-                    font-size: 20px;
-                }
-            }
-            .content {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 20px;
-                .item {
-                    padding: 15px;
-                    border-radius: 5px;
-                }
-            }
-        }
+      }
     }
+    .random-episodes {
+      .headline {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        h2 {
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+      .content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        .item {
+          padding: 15px;
+          border-radius: 5px;
+        }
+      }
+    }
+    .random-locations {
+      .headline {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        h2 {
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+      .content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        .item {
+          padding: 15px;
+          border-radius: 5px;
+        }
+      }
+    }
+    .location-list {
+      .title {
+        border-radius: 5px;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .location-list-item {
+        border-radius: 5px;
+        padding: 15px;
+      }
+    }
+    .episode-list {
+      .title {
+        border-radius: 5px;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .episode-list-item {
+        border-radius: 5px;
+        padding: 15px;
+      }
+    }
+    .character-list {
+      .title {
+        border-radius: 5px;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .character-list-item {
+        border-radius: 5px;
+        padding: 15px;
+      }
+    }
+    .filter {
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .pagination {
+      padding: 15px;
+      border-radius: 5px;
+    }
+  }
 }

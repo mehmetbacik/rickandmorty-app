@@ -40,7 +40,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="mb-4">
+    <div className="bg-white bg-opacity-75 mb-4 filter">
       <div className="mb-2">
         <input
           type="text"

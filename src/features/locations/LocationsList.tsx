@@ -38,13 +38,13 @@ const LocationsList: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Locations</h1>
+      <h1 className="bg-white bg-opacity-75 mb-4 title">Locations</h1>
       <Filter onFilterChange={handleFilterChange} />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {locations.map((location) => (
           <div
             key={location.id}
-            className="border p-4 cursor-pointer"
+            className="location-list-item cursor-pointer bg-white bg-opacity-75"
             onClick={() => handleLocationClick(location.id)}
           >
             <h2 className="text-xl font-bold">{location.name}</h2>
