@@ -30,9 +30,15 @@ const Location: React.FC = () => {
       <div className="content">
         {randomLocations.map((location) => (
           <div className="item bg-white bg-opacity-75" key={location.id}>
-            <h3>{location.name}</h3>
-            <p>Type: {location.type}</p>
-            <p>Dimension: {location.dimension}</p>
+            <h3>
+              <strong>{location.name}</strong>
+            </h3>
+            <p>
+              <strong>Type:</strong> {location.type}
+            </p>
+            <p>
+              <strong>Dimension:</strong> {location.dimension}
+            </p>
           </div>
         ))}
       </div>

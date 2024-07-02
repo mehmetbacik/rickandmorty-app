@@ -30,7 +30,9 @@ const Episode: React.FC = () => {
       <div className="content">
         {randomEpisodes.map((episode) => (
           <div className="item bg-white bg-opacity-75" key={episode.id}>
-            <h3>{episode.name}</h3>
+            <h3>
+              <strong>{episode.name}</strong>
+            </h3>
             <p>
               <strong>Air Date:</strong> {episode.air_date}
             </p>

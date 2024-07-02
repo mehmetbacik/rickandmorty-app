@@ -30,7 +30,7 @@ const Pagination: React.FC<PaginationProps> = ({
         disabled={currentPage === 1}
         className="px-4 py-2 mx-2 bg-blue-500 text-white disabled:bg-gray-400"
       >
-        Previous
+        Prev
       </button>
       <span className="px-4 py-2">
         Page {currentPage} of {totalPages}

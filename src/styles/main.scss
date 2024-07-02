@@ -205,3 +205,48 @@ body {
     }
   }
 }
+
+@media (max-width: 1400px) {
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+  body {
+    main {
+      .swiper {
+        .swiper-slide {
+          .slide {
+            .slide-content {
+              flex-direction: column;
+              align-items: flex-end;
+              .headline {
+                margin-bottom: 20px;
+              }
+              .url {
+                margin-bottom: 20px;
+              }
+            }
+          }
+        }
+      }
+      .random-episodes {
+        .content {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      .random-locations {
+        .content {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    }
+  }
+}

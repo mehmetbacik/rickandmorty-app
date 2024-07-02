@@ -24,7 +24,7 @@ const CharacterDetail: React.FC = () => {
       {characterDetail && (
         <div className="bg-white bg-opacity-75 character-detail-content">
           <h1 className=" mb-4 title">{characterDetail.name}</h1>
-          <div className="flex items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-8">
             <div>
               <img
                 src={characterDetail.image}

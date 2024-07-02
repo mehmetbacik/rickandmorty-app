@@ -41,18 +41,18 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
 
   return (
     <div className="bg-white bg-opacity-75 mb-4 filter">
-      <div className="mb-2">
+      <div className="flex flex-col md:flex-row items-center gap-4 mb-2">
         <input
           type="text"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="border p-2 mr-2"
+          className="border p-2 w-full"
         />
         <select
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="border p-2 mr-2"
+          className="border p-2 w-full"
         >
           <option value="">Status</option>
           <option value="alive">Alive</option>
@@ -64,19 +64,19 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
           placeholder="Species"
           value={species}
           onChange={(e) => setSpecies(e.target.value)}
-          className="border p-2 mr-2"
+          className="border p-2 w-full"
         />
         <input
           type="text"
           placeholder="Type"
           value={type}
           onChange={(e) => setType(e.target.value)}
-          className="border p-2 mr-2"
+          className="border p-2 w-full"
         />
         <select
           value={gender}
           onChange={(e) => setGender(e.target.value)}
-          className="border p-2 mr-2"
+          className="border p-2 w-full"
         >
           <option value="">Gender</option>
           <option value="male">Male</option>
@@ -87,14 +87,14 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
         <button
           type="button"
           onClick={handleFilterChange}
-          className="bg-blue-500 text-white p-2 mr-2"
+          className="bg-blue-500 text-white p-2 w-full"
         >
           Filter
         </button>
         <button
           type="button"
           onClick={handleResetFilters}
-          className="bg-gray-500 text-white p-2"
+          className="bg-gray-500 text-white p-2 w-full"
         >
           Reset
         </button>

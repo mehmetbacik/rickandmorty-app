@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   return (
     <header className="bg-gray-600 bg-opacity-75 p-4 text-white sticky top-0 z-50">
       <nav className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold">
+        <Link to="/" className="text-xl font-bold mb-3 md:mb-0">
           <img src={Logo} alt="Logo" className="w-1/3 h-auto" />
         </Link>
         <div className="hidden md:flex items-center space-x-4 menu">
