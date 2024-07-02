@@ -4,7 +4,7 @@ import LocationDetail from "../features/locations/LocationDetail";
 
 const LocationDetailPage: React.FC = () => {
   return (
-    <div>
+    <div className="location-detail">
       <LocationDetail />
     </div>
   );

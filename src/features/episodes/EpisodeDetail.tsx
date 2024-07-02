@@ -23,23 +23,16 @@ const EpisodeDetail: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">{episodeDetail.name}</h1>
-      <p>
-        <strong>Air Date:</strong> {episodeDetail.air_date}
-      </p>
-      <p>
-        <strong>Episode:</strong> {episodeDetail.episode}
-      </p>
-      <h2 className="text-xl font-bold mt-4">Characters</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {episodeDetail.characters.map((characterUrl: string) => {
-          const characterId = characterUrl.split("/").pop();
-          return (
-            <div key={characterId} className="border p-4">
-              <p>Character ID: {characterId}</p>
-            </div>
-          );
-        })}
+      <h1 className="bg-white bg-opacity-75 mb-4 title">
+        {episodeDetail.name}
+      </h1>
+      <div className="bg-white bg-opacity-75 episode-detail-content mb-4">
+        <p>
+          <strong>Air Date:</strong> {episodeDetail.air_date}
+        </p>
+        <p>
+          <strong>Episode:</strong> {episodeDetail.episode}
+        </p>
       </div>
     </div>
   );

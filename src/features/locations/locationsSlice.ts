@@ -28,7 +28,7 @@ const locationsSlice = createSlice({
     error: null as string | null,
     totalPages: 0,
     currentPage: 1,
-    filters: {} as any, // Default filter value
+    filters: {} as any,
   },
   reducers: {
     setPage: (state, action) => {

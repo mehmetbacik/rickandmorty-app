@@ -137,15 +137,71 @@ body {
       .character-list-item {
         border-radius: 5px;
         padding: 15px;
+        img {
+          border-radius: 5px;
+        }
+      }
+    }
+    .location-detail {
+      .title {
+        border-radius: 5px;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .location-detail-content {
+        border-radius: 5px;
+        padding: 15px;
+        font-size: 18px;
+      }
+    }
+    .episode-detail {
+      .title {
+        border-radius: 5px;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .episode-detail-content {
+        border-radius: 5px;
+        padding: 15px;
+        font-size: 18px;
+      }
+    }
+    .character-detail {
+      .character-detail-content {
+        border-radius: 5px;
+        padding: 15px;
+        font-size: 18px;
+        .title {
+          border-radius: 5px;
+          font-weight: bold;
+          font-size: 20px;
+        }
+        img {
+          border-radius: 5px;
+        }
       }
     }
     .filter {
       padding: 15px;
       border-radius: 5px;
+      input {
+        border-radius: 5px;
+      }
+      button {
+        border-radius: 5px;
+      }
+      select {
+        border-radius: 5px;
+      }
     }
     .pagination {
       padding: 15px;
       border-radius: 5px;
+      button {
+        border-radius: 5px;
+      }
     }
   }
 }

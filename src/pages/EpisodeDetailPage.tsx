@@ -4,7 +4,7 @@ import EpisodeDetail from "../features/episodes/EpisodeDetail";
 
 const EpisodeDetailPage: React.FC = () => {
   return (
-    <div>
+    <div className="episode-detail">
       <EpisodeDetail />
     </div>
   );

@@ -4,7 +4,7 @@ import CharacterDetail from "../features/characters/CharacterDetail";
 
 const CharacterDetailPage: React.FC = () => {
   return (
-    <div>
+    <div className="character-detail">
       <CharacterDetail />
     </div>
   );

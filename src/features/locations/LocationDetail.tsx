@@ -22,10 +22,18 @@ const LocationDetail: React.FC = () => {
   if (!locationDetail) return null;
 
   return (
-    <div className="location-detail">
-      <h2>{locationDetail.name}</h2>
-      <p>Type: {locationDetail.type}</p>
-      <p>Dimension: {locationDetail.dimension}</p>
+    <div className="container mx-auto p-4">
+      <h1 className="bg-white bg-opacity-75 mb-4 title">
+        {locationDetail.name}
+      </h1>
+      <div className="bg-white bg-opacity-75 location-detail-content">
+        <p>
+          <strong>Type:</strong> {locationDetail.type}
+        </p>
+        <p>
+          <strong>Dimension:</strong> {locationDetail.dimension}
+        </p>
+      </div>
     </div>
   );
 };
