@@ -22,17 +22,31 @@ const CharacterDetail: React.FC = () => {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {characterDetail && (
-        <div>
-          <h1 className="text-2xl font-bold mb-4">{characterDetail.name}</h1>
-          <img
-            src={characterDetail.image}
-            alt={characterDetail.name}
-            className="w-full h-64 object-cover mb-4"
-          />
-          <p>Status: {characterDetail.status}</p>
-          <p>Species: {characterDetail.species}</p>
-          <p>Gender: {characterDetail.gender}</p>
-          <p>Origin: {characterDetail.origin.name}</p>
+        <div className="bg-white bg-opacity-75 character-detail-content">
+          <h1 className=" mb-4 title">{characterDetail.name}</h1>
+          <div className="flex items-center gap-8">
+            <div>
+              <img
+                src={characterDetail.image}
+                alt={characterDetail.name}
+                className="w-full h-64 object-cover mb-4"
+              />
+            </div>
+            <div>
+              <p>
+                <strong>Status:</strong> {characterDetail.status}
+              </p>
+              <p>
+                <strong>Species:</strong> {characterDetail.species}
+              </p>
+              <p>
+                <strong>Gender:</strong> {characterDetail.gender}
+              </p>
+              <p>
+                <strong>Origin:</strong> {characterDetail.origin.name}
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </div>
