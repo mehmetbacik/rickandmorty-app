@@ -206,16 +206,55 @@ body {
   }
 }
 
-@media (max-width: 1400px) {
-}
-
 @media (max-width: 1200px) {
+  body {
+    main {
+      .random-episodes {
+        .content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .random-locations {
+        .content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 992px) {
+  body {
+    main {
+      .random-episodes {
+        .content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .random-locations {
+        .content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
+  body {
+    main {
+      .random-episodes {
+        .content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .random-locations {
+        .content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 576px) {
