@@ -77,7 +77,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Deploy
 
-For a detailed exploration of the project, you can visit the [deployed site here](https://url-shortening-umber.vercel.app/).
+For a detailed exploration of the project, you can visit the [deployed site here](https://rickandmorty-app-khaki.vercel.app/).
 
 ## GitHub Page
 
