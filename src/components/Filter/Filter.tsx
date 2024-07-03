@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import FilterInput from "./components/FilterInput";
+import FilterSelect from "./components/FilterSelect";
+import FilterButtons from "./components/FilterButtons";
 
 interface FilterProps {
   onFilterChange: (filters: {
@@ -42,63 +45,47 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   return (
     <div className="bg-white bg-opacity-75 mb-4 filter">
       <div className="flex flex-col md:flex-row items-center gap-4 mb-2">
-        <input
-          type="text"
+        <FilterInput
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="border p-2 w-full"
         />
-        <select
+        <FilterSelect
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="border p-2 w-full"
-        >
-          <option value="">Status</option>
-          <option value="alive">Alive</option>
-          <option value="dead">Dead</option>
-          <option value="unknown">Unknown</option>
-        </select>
-        <input
-          type="text"
+          options={[
+            { value: "", label: "Status" },
+            { value: "alive", label: "Alive" },
+            { value: "dead", label: "Dead" },
+            { value: "unknown", label: "Unknown" },
+          ]}
+        />
+        <FilterInput
           placeholder="Species"
           value={species}
           onChange={(e) => setSpecies(e.target.value)}
-          className="border p-2 w-full"
         />
-        <input
-          type="text"
+        <FilterInput
           placeholder="Type"
           value={type}
           onChange={(e) => setType(e.target.value)}
-          className="border p-2 w-full"
         />
-        <select
+        <FilterSelect
           value={gender}
           onChange={(e) => setGender(e.target.value)}
-          className="border p-2 w-full"
-        >
-          <option value="">Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="genderless">Genderless</option>
-          <option value="unknown">Unknown</option>
-        </select>
-        <button
-          type="button"
-          onClick={handleFilterChange}
-          className="bg-blue-500 text-white p-2 w-full"
-        >
-          Filter
-        </button>
-        <button
-          type="button"
-          onClick={handleResetFilters}
-          className="bg-gray-500 text-white p-2 w-full"
-        >
-          Reset
-        </button>
+          options={[
+            { value: "", label: "Gender" },
+            { value: "male", label: "Male" },
+            { value: "female", label: "Female" },
+            { value: "genderless", label: "Genderless" },
+            { value: "unknown", label: "Unknown" },
+          ]}
+        />
       </div>
+      <FilterButtons
+        onFilter={handleFilterChange}
+        onReset={handleResetFilters}
+      />
     </div>
   );
 };

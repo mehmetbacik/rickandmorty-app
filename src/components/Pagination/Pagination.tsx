@@ -1,4 +1,5 @@
 import React from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 interface PaginationProps {
   currentPage: number;
@@ -28,9 +29,9 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={handlePrevious}
         disabled={currentPage === 1}
-        className="px-4 py-2 mx-2 bg-blue-500 text-white disabled:bg-gray-400"
+        className="flex items-center justify-center px-4 py-2 mx-2 bg-blue-500 text-white disabled:bg-gray-400"
       >
-        Prev
+        <FaChevronLeft className="w-4 h-4 mr-1" />
       </button>
       <span className="px-4 py-2">
         Page {currentPage} of {totalPages}
@@ -38,9 +39,9 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={handleNext}
         disabled={currentPage === totalPages}
-        className="px-4 py-2 mx-2 bg-blue-500 text-white disabled:bg-gray-400"
+        className="flex items-center justify-center px-4 py-2 mx-2 bg-blue-500 text-white disabled:bg-gray-400"
       >
-        Next
+        <FaChevronRight className="w-4 h-4 ml-1" />
       </button>
     </div>
   );

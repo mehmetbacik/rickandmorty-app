@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/main.scss";
-import SwiperSlider from "../components/SwiperSlider";
-import Episode from "../components/Episode";
-import Location from "../components/Location";
+import SwiperSlider from "../components/Swiper/SwiperSlider";
+import Episode from "../components/Episode/Episode";
+import Location from "../components/Location/Location";
 
 const Home: React.FC = () => {
   return (

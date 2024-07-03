@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../app/store";
-import { getLocations } from "../features/locations/locationsSlice";
+import { AppDispatch, RootState } from "../../../app/store";
+import { getLocations } from "../../../features/locations/locationsSlice";
+import LocationList from "./LocationList";
 
-const Location: React.FC = () => {
+const LocationsContainer: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { locations, loading, error } = useSelector(
     (state: RootState) => state.locations
@@ -27,23 +28,9 @@ const Location: React.FC = () => {
       <div className="headline bg-white bg-opacity-75">
         <h2>Locations</h2>
       </div>
-      <div className="content">
-        {randomLocations.map((location) => (
-          <div className="item bg-white bg-opacity-75" key={location.id}>
-            <h3>
-              <strong>{location.name}</strong>
-            </h3>
-            <p>
-              <strong>Type:</strong> {location.type}
-            </p>
-            <p>
-              <strong>Dimension:</strong> {location.dimension}
-            </p>
-          </div>
-        ))}
-      </div>
+      <LocationList locations={randomLocations} />
     </div>
   );
 };
 
-export default Location;
+export default LocationsContainer;

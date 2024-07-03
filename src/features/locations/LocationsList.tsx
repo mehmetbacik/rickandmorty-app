@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
 import { getLocations, setPage, setFilters } from "./locationsSlice";
 import { useNavigate } from "react-router-dom";
-import Pagination from "../../components/Pagination";
-import Filter from "../../components/Filter";
+import Pagination from "../../components/Pagination/Pagination";
+import Filter from "../../components/Filter/Filter";
 
 const LocationsList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();

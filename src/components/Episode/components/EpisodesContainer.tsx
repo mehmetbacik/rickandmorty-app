@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../app/store";
-import { getEpisodes } from "../features/episodes/episodesSlice";
+import { AppDispatch, RootState } from "../../../app/store";
+import { getEpisodes } from "../../../features/episodes/episodesSlice";
+import EpisodeList from "./EpisodeList";
 
-const Episode: React.FC = () => {
+const EpisodesContainer: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { episodes, loading, error } = useSelector(
     (state: RootState) => state.episodes
@@ -27,23 +28,9 @@ const Episode: React.FC = () => {
       <div className="headline bg-white bg-opacity-75">
         <h2>Episodes</h2>
       </div>
-      <div className="content">
-        {randomEpisodes.map((episode) => (
-          <div className="item bg-white bg-opacity-75" key={episode.id}>
-            <h3>
-              <strong>{episode.name}</strong>
-            </h3>
-            <p>
-              <strong>Air Date:</strong> {episode.air_date}
-            </p>
-            <p>
-              <strong>Episode:</strong> {episode.episode}
-            </p>
-          </div>
-        ))}
-      </div>
+      <EpisodeList episodes={randomEpisodes} />
     </div>
   );
 };
 
-export default Episode;
+export default EpisodesContainer;
